@@ -1,3 +1,5 @@
+import LocalAuthentication
+
 // MARK:- Security test
 extension AppDelegate {
     
@@ -35,4 +37,9 @@ extension AppDelegate {
             }
         }
     }
+      
+  /// Checks to see if devices (not apps) passcode has been set
+  func devicePasscodeSet() -> Bool {
+    return LAContext().canEvaluatePolicy(.deviceOwnerAuthentication, error: nil)
+  }
 }
